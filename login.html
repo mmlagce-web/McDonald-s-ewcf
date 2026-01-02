@@ -1,0 +1,16 @@
+<h2>Вход</h2>
+
+<input id="email" placeholder="Email"><br>
+<input id="pass" type="password"><br>
+<button onclick="login()">Войти</button>
+
+<script>
+function login(){
+  let u = JSON.parse(localStorage.getItem("user"));
+  if(!u || u.email!==email.value || u.pass!==pass.value)
+    return alert("Ошибка");
+
+  localStorage.setItem("auth","1");
+  location.href="index.html";
+}
+</script>
