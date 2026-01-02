@@ -1,0 +1,25 @@
+<h2>Регистрация</h2>
+
+<input id="email" placeholder="Email"><br>
+<input id="pass" type="password" placeholder="Пароль"><br>
+
+<label>
+<input type="checkbox" id="agree">
+Я принимаю <a href="license.html">лицензию</a>
+</label><br><br>
+
+<button onclick="reg()">Создать аккаунт</button>
+
+<script>
+function reg(){
+  if(!agree.checked) return alert("Прими лицензию");
+
+  localStorage.setItem("user", JSON.stringify({
+    email: email.value,
+    pass: pass.value
+  }));
+
+  alert("Аккаунт создан");
+  location.href="login.html";
+}
+</script>
