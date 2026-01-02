@@ -1,0 +1,15 @@
+<h2>Профиль</h2>
+
+<input id="avatar" placeholder="Ссылка на аватар">
+<input id="banner" placeholder="Ссылка на баннер">
+<button onclick="save()">Сохранить</button>
+
+<script>
+function save(){
+  let u = JSON.parse(localStorage.getItem("user"));
+  u.avatar = avatar.value;
+  u.banner = banner.value;
+  localStorage.setItem("user", JSON.stringify(u));
+  alert("Сохранено");
+}
+</script>
