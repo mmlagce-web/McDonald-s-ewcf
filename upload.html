@@ -1,0 +1,17 @@
+<h2>Добавить YouTube видео</h2>
+
+<input id="title" placeholder="Название"><br>
+<input id="url" placeholder="YouTube ссылка"><br>
+<button onclick="add()">Добавить</button>
+
+<script>
+function add(){
+  let id = url.value.split("v=")[1];
+  let videos = JSON.parse(localStorage.getItem("videos") || "[]");
+
+  videos.push({ title: title.value, id });
+  localStorage.setItem("videos", JSON.stringify(videos));
+
+  alert("Видео добавлено");
+}
+</script>
