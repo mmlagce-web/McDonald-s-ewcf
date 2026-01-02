@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>MyVideo</title>
+</head>
+<body>
+
+<h1>MyVideo</h1>
+<a href="login.html">Вход</a> |
+<a href="register.html">Регистрация</a> |
+<a href="upload.html">Добавить видео</a>
+
+<hr>
+
+<div id="videos"></div>
+
+<script>
+let videos = JSON.parse(localStorage.getItem("videos") || "[]");
+
+videos.forEach(v => {
+  document.getElementById("videos").innerHTML += `
+    <h3>${v.title}</h3>
+    <iframe width="360" height="200"
+    src="https://www.youtube.com/embed/${v.id}"
+    allowfullscreen></iframe>
+  `;
+});
+</script>
+
+</body>
+</html>
